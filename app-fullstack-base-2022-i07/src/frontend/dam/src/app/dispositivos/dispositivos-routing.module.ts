@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: DispositivosPage
+  },  {
+    path: 'detalle-sensor',
+    loadChildren: () => import('./detalle-sensor/detalle-sensor.module').then( m => m.DetalleSensorPageModule)
   }
+
 ];
 
 @NgModule({
