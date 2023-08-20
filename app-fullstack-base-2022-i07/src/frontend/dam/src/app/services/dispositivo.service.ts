@@ -13,8 +13,8 @@ export class DispositivoService {
     return firstValueFrom(this._http.get('http://localhost:8000/dispositivo'))
   }
 
-  getMediciones (): Promise<any> {
-    return firstValueFrom(this._http.get('http://localhost:8000/dispositivo/medicion/${id}'))
+  getMediciones (id: any): Promise<any> {
+    return firstValueFrom(this._http.get('http://localhost:8000/dispositivo/medicion/'+id))
   }
 
   getDispConUltimaMedicion (): Promise<any> {

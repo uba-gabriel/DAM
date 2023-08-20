@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription, fromEvent, interval, map } from 'rxjs';
 import { DispositivoService } from '../services/dispositivo.service'
 
@@ -9,18 +10,25 @@ import { DispositivoService } from '../services/dispositivo.service'
 })
 export class MedicionesPage implements OnInit {
 
-  dispositivos: any[] = []; 
+  mediciones: any[] = []; 
+  public idDispositivo: any;
+  //Mediciones: Array <Medicion> = new Array<Medicion>(); 
+  
+  //constructor(private router: ActivatedRoute, public medicionesServ: MedicionService ,public dispositivoServ: DispositivoService) { 
 
 
-  constructor(private _dispositivoService: DispositivoService) {}
+  constructor(private router: ActivatedRoute, private _dispositivoService: DispositivoService) {}
 
   ngOnInit() {
-    this.obtenerDispositivos();
+    this.idDispositivo = this.router.snapshot.paramMap.get('id');
+    console.log('idDispositivo:'+this.idDispositivo);
+    this.obtenerMediciones();
   }
 
-  async obtenerDispositivos() {
+  async obtenerMediciones() {
+    console.log("Estoy en obtenerMediciones");
     try {
-      this.dispositivos = await this._dispositivoService.getListadoDispositivos();
+      this.mediciones = await this._dispositivoService.getMediciones(this.idDispositivo);
     } catch (error) {
       console.log(error);
     }
