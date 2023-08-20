@@ -14,7 +14,12 @@ const routes: Routes = [
   {
     path: 'dispositivos',
     loadChildren: () => import('./dispositivos/dispositivos.module').then( m => m.DispositivosPageModule)
+  },
+  {
+    path: 'mediciones',
+    loadChildren: () => import('./mediciones/mediciones.module').then( m => m.MedicionesPageModule)
   }
+
 ];
 
 @NgModule({

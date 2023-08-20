@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Mediciones</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content color="dark">
+
+  <ion-list lines="full">
+    <ion-item class="header">
+    <!-- esto es el encabezado -->
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2"><h3><strong>Nombre</strong></h3></ion-col>
+          <ion-col size="2"><h3><strong>Ubicación</strong></h3></ion-col>
+          <!--<ion-col size="2"><h3><strong>Última Medición</strong></h3></ion-col>-->
+          <ion-col size="2"><h3><strong>Ver Detalles</strong></h3></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+
+    <!-- esto es los datos de cada dispositivo -->
+    <ion-item *ngFor="let dispositivo of dispositivos" class="disp">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="2">
+            <h3>{{ dispositivo.nombre }}</h3>
+          </ion-col>
+          <ion-col size="2">
+            <ion-icon name="wifi-outline"></ion-icon>
+            <p class="ubicacion">{{ dispositivo.ubicacion }}</p>
+          </ion-col>
+          <!--<ion-col size="2">
+            <h3>{{ dispositivo.fecha_ultima_medicion }}</h3>-->
+            <!-- Uso de PIPE -->
+            <!--<h3>{{ dispositivo.valor_ultima_medicion | number: '1.1-2' }} Cb</h3>
+          </ion-col>-->
+          <ion-col size="2">
+            <ion-button  shape="round" fill="clear" expand="full" routerLink="/dispositivos/detalles/{{ dispositivo.dispositivoId }}">
+              <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+  </ion-list>
+</ion-content>

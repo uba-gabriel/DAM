@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DetallesComponent } from './detalles/detalles.component';
 import { ValvulasComponent } from './valvulas/valvulas.component';
 import { LogRiegoComponent } from './log-riego/log-riego.component';
-import { MedicionesComponent } from './mediciones/mediciones.component';
+import { MedicionesPage } from '../mediciones/mediciones.page';
 import { DispositivosPage } from './dispositivos.page';
 
 const routes: Routes = [
@@ -25,7 +25,7 @@ const routes: Routes = [
   },
   { 
     path: 'mediciones/:id', 
-    component: MedicionesComponent
+    component: MedicionesPage
   }
 ];
 
