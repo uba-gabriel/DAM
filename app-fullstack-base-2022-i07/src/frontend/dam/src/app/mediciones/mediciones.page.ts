@@ -12,10 +12,6 @@ export class MedicionesPage implements OnInit {
 
   mediciones: any[] = []; 
   public idDispositivo: any;
-  //Mediciones: Array <Medicion> = new Array<Medicion>(); 
-  
-  //constructor(private router: ActivatedRoute, public medicionesServ: MedicionService ,public dispositivoServ: DispositivoService) { 
-
 
   constructor(private router: ActivatedRoute, private _dispositivoService: DispositivoService) {}
 

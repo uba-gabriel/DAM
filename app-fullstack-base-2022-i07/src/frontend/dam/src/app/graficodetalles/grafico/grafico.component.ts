@@ -114,7 +114,7 @@ export class GraficoComponent  implements OnInit {
     ,
   
     series: [{
-        name: 'Presión:',
+        name: 'kPA:',
         data: [this.valorObtenido],
         tooltip: {
             valueSuffix: ' Cb'
