@@ -29,7 +29,7 @@
       <ion-grid>
         <ion-row>
           <ion-col size="5"> <h2><strong>Fecha:</strong></h2>
-            <h3>{{ medicion.fecha | datepipe  }}</h3><!--Uso de Pipe para formato de fecha-->
+            <h3>{{ medicion.fecha | dateformat  }}</h3><!--Uso de Pipe para formato de fecha-->
             <br><h2><strong>kPA:</strong></h2>
             <h3>{{ medicion.valor | number: '1.1-2' }}</h3> 
           </ion-col>

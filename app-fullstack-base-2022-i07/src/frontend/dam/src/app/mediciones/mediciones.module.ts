@@ -17,6 +17,6 @@ import { DatepipePipe } from '../pipes/datepipe.pipe';
     IonicModule,
     MedicionesPageRoutingModule
   ],
-  declarations: [MedicionesPage, DatepipePipe]
+declarations: [MedicionesPage, DatepipePipe]
 })
 export class MedicionesPageModule {}

@@ -8,7 +8,6 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SombreadoDirective } from './directivas/sombreado.directive';
-//import { DatepipePipe } from './pipes/datepipe.pipe';
 
 @NgModule({
   declarations: [AppComponent, SombreadoDirective],
