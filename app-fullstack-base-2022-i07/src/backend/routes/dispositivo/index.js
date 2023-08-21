@@ -52,10 +52,22 @@ routerDispositivo.get('/logsriegos/:id', function(req, res) {
     });
 });
 
-routerDispositivo.get('/ultimo_log_valvula/:id', function(req, res) {
+routerDispositivo.get('/estadovalvula/:id', function(req, res) {
     const electrovalvulaId = req.params.electrovalvulaId;
 
-    pool.query('Select * from Log_Riegos where electrovalvulaId=? order by fecha, logRiegoId desc limit 1', [electrovalvulaId], function(err, result, fields) {
+    pool.query('Select apertura from Log_Riegos where electrovalvulaId=? order by fecha, logRiegoId desc limit 1', [electrovalvulaId], function(err, result, fields) {
+        if (err) {
+            res.status(400).send(err);
+            return;
+        }
+        res.send(result);
+    });
+});
+
+routerDispositivo.get('/valvula/:id', function(req, res) {
+    const dispositivoId = req.params.electrovalvulaId;
+
+    pool.query('Select electrovalvulaId from Dispositivos where dispositivoId=?', [dispositivoId], function(err, result, fields) {
         if (err) {
             res.status(400).send(err);
             return;

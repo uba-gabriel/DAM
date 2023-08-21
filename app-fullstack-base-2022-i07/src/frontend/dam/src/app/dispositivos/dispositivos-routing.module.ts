@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DetallesensorPage } from '../detallesensor/detallesensor.page';
+//import { DetallesensorPage } from '../detallesensor/detallesensor.page';
 //import { ValvulasComponent } from './valvulas/valvulas.component';
 import { LogsriegoPage } from '../logsriego/logsriego.page';
 import { MedicionesPage } from '../mediciones/mediciones.page';
@@ -10,11 +10,11 @@ const routes: Routes = [
   {
     path: '',
     component: DispositivosPage
-  },
+  },/*,
   { 
     path: 'detallesensor/:id', 
     component: DetallesensorPage 
-  },
+  },*/
   /*{ 
     path: 'valvulas/:id', 
     component: ValvulasComponent

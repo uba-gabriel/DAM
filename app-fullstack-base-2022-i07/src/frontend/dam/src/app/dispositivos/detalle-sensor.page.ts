@@ -3,30 +3,30 @@ import * as Highcharts from 'highcharts';
 declare var require: any;
 require('highcharts/highcharts-more')(Highcharts);
 require('highcharts/modules/solid-gauge')(Highcharts);
-import { Medicion } from '../model/medicion';
-import { MedicionService } from '../services/medicion.service';
+//import { Medicion } from '../model/medicion';
+//import { MedicionService } from '../services/medicion.service';
 
 
 
 
 @Component({
   selector: 'app-detalle-sensor',
-  templateUrl: './detalle-sensor-page.html'
+  templateUrl: './detalle-sensor.page.html'
 })
 
 export class DetalleSensorPage implements OnInit {
-  public medicionUltima: Medicion;
+  public medicionUltima: any;//Medicion;
   
   
-  public myChart;
+  public myChart:any;
   private valorObtenido=0;
-  private chartOptions;
+  private chartOptions:any;
   
 
 
-   @Input() sensorNumber : string;
+   @Input() sensorNumber : any;//string;
 
-  constructor(public medicionServ: MedicionService) {
+  //constructor(public medicionServ: MedicionService) {
      /*   
     setTimeout(()=>{
       console.log(this.medicionUltima);
@@ -45,13 +45,13 @@ export class DetalleSensorPage implements OnInit {
       }]});
     },600);*/
   
-  }
+  //}
 
   ngOnInit() {
     console.log("este es el sensor:"+ this.sensorNumber);    
     
     this.generarChart(this.sensorNumber);
-    this.llamoMedicion(this.sensorNumber);
+    //this.llamoMedicion(this.sensorNumber);
     
     
   }
@@ -75,7 +75,7 @@ export class DetalleSensorPage implements OnInit {
           plotShadow: false
         }
         ,title: {
-          text: 'Sensor N° '+name
+          text: 'Sensor NÂ° '+name
         }
         ,credits:{enabled:false}
         ,pane: {
@@ -139,14 +139,14 @@ export class DetalleSensorPage implements OnInit {
       }
   }]});
    }
-   async llamoMedicion(idDispositivo: string){
+   /*async llamoMedicion(idDispositivo: string){
     console.log("Estoy en llamando a la medicion");
     let local= await this.medicionServ.getLastMedicion(parseInt(idDispositivo)); 
     this.medicionUltima=local;          
     this.update();
    // this.sensor.setValorObtenido(parseInt(this.medicionUltima.valor));
    // window.location.reload();
-  };
+  };*/
 
   
 }

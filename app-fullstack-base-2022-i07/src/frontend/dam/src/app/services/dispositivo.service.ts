@@ -17,11 +17,15 @@ export class DispositivoService {
     return firstValueFrom(this._http.get('http://localhost:8000/dispositivo/medicion/'+id))
   }
 
-  getDispConUltimaMedicion (): Promise<any> {
-    return firstValueFrom(this._http.get('http://localhost:8000/dispositivo/ultima_medicion'))
+  getUltimaMedicion (id: any): Promise<any> {
+    return firstValueFrom(this._http.get('http://localhost:8000/dispositivo/ultmedicion/'+id))
   }
 
-  getLogRiegos (): Promise<any> {
-    return firstValueFrom(this._http.get('http://localhost:8000/dispositivo/log-riegos/${id}'))
+  getLogRiegos (id: any): Promise<any> {
+    return firstValueFrom(this._http.get('http://localhost:8000/dispositivo/log-riegos/'+id))
+  }
+
+  getValvula (id: any): Promise<any> {
+    return firstValueFrom(this._http.get('http://localhost:8000/dispositivo/valvula/'+id))
   }
 }

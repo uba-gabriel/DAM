@@ -18,14 +18,20 @@ const routes: Routes = [
   {
     path: 'medicion/:id',
     loadChildren: () => import('./mediciones/mediciones.module').then( m => m.MedicionesPageModule)
-  },  {
-    path: 'logsriego',
-    loadChildren: () => import('./logsriego/logsriego.module').then( m => m.LogsriegoPageModule)
   },
+  {
+    path: 'logsriego/:id',
+    loadChildren: () => import('./logsriego/logsriego.module').then( m => m.LogsriegoPageModule)
+  },  
+  {
+    path: 'graficodetalles/:id',
+    loadChildren: () => import('./graficodetalles/graficodetalles.module').then( m => m.GraficodetallesPageModule)
+  }
+/*,
   {
     path: 'detallesensor',
     loadChildren: () => import('./detallesensor/detallesensor.module').then( m => m.DetallesensorPageModule)
-  }
+  }*/
 
 
 ];
