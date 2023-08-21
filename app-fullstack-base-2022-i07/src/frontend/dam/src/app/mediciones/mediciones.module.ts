@@ -8,6 +8,8 @@ import { MedicionesPageRoutingModule } from './mediciones-routing.module';
 
 import { MedicionesPage } from './mediciones.page';
 
+import { DatepipePipe } from '../pipes/datepipe.pipe';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -15,6 +17,6 @@ import { MedicionesPage } from './mediciones.page';
     IonicModule,
     MedicionesPageRoutingModule
   ],
-  declarations: [MedicionesPage]
+  declarations: [MedicionesPage, DatepipePipe]
 })
 export class MedicionesPageModule {}
