@@ -17,7 +17,7 @@ routerDispositivo.get('/', function(req, res) {
 routerDispositivo.get('/medicion/:id', function(req, res) {
     const dispositivoId = req.params.id;
 
-    pool.query('SELECT * FROM Mediciones WHERE dispositivoId = ?', [dispositivoId], function(err, result, fields) {
+    pool.query('SELECT * FROM Mediciones WHERE dispositivoId = ? ORDER BY medicionId', [dispositivoId], function(err, result, fields) {
         if (err) {
             res.status(400).send(err);
             return;
