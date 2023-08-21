@@ -27,11 +27,6 @@ const routes: Routes = [
     path: 'graficodetalles/:id',
     loadChildren: () => import('./graficodetalles/graficodetalles.module').then( m => m.GraficodetallesPageModule)
   }
-/*,
-  {
-    path: 'detallesensor',
-    loadChildren: () => import('./detallesensor/detallesensor.module').then( m => m.DetallesensorPageModule)
-  }*/
 
 
 ];
