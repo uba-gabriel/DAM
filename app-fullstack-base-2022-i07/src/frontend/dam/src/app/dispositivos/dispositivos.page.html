@@ -54,6 +54,14 @@
               <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
             </ion-button>
           </ion-col>
+
+          <div *ngIf="dispositivo.apertura == 1" > 
+            <ion-button shape="round" expand="full"  >ABRIR ELECTROVALVULAS</ion-button><!--(click)="botonAbrir()"-->
+          </div>
+          <div *ngIf="dispositivo.apertura == 0" > 
+              <ion-button shape="round" expand="full"  >CERRAR ELECTROVALVULAS</ion-button><!--(click)="botonCerrar()"-->
+          </div>
+        
         </ion-row>
       </ion-grid>
     </ion-item>
