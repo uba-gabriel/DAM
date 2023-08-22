@@ -76,5 +76,36 @@ routerDispositivo.get('/valvula/:id', function(req, res) {
     });
 });
 
+routerDispositivo.put('/cambiavalvula/:id', async function(req, res, next) {
+    
+   const electrovalvulaId = req.params.electrovalvulaId;
+    
+   console.log("cambiando ev:"+requestLocal);
+    let result=0;
+    let actualState=0;
+    let results="0";
+    let actual_value;
+    let action="cerrar";
+
+    pool.query('SELECT * FROM Log_Riegos  WHERE electrovalvulaId=? order by fecha desc',[req.params.electrovalvulaId], async function(err,result, fields){                   
+        actual_value=result[0];
+        console.log(result[0]);
+      
+    try{ 
+        pool.query('INSERT INTO Log_Riegos (apertura,fecha,electrovalvulaId) values (?, NOW(),?)',[([actual_value.apertura]==0)? 1 : 0,req.params.electrovalvulaId],await function(error,result, fields){
+               console.log(result);
+                if(error){
+                        throw(error);
+                    }                
+                }) 
+        }catch(error){console.log(error);}
+        //;} 
+    });
+  
+    //send response to frontend
+    res.send("Item status Updated").status(200);
+    res.end();
+});
+
 module.exports = routerDispositivo
 
