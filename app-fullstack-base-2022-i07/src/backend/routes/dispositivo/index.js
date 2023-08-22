@@ -5,7 +5,7 @@ const routerDispositivo = express.Router()
 var pool = require('../../mysql-connector');
 
 routerDispositivo.get('/', function(req, res) {
-    pool.query('Select * from Dispositivos order by dispositivoId asc', function(err, result, fields) {
+    pool.query('SELECT d.dispositivoId, d.electrovalvulaId, d.nombre, d.ubicacion, COALESCE(lr.apertura, 0) AS apertura FROM Dispositivos d LEFT JOIN ( SELECT l1.electrovalvulaId, l1.apertura FROM Log_Riegos l1 JOIN ( SELECT electrovalvulaId, MAX(fecha) AS max_fecha FROM Log_Riegos GROUP BY electrovalvulaId ) l2 ON l1.electrovalvulaId = l2.electrovalvulaId AND l1.fecha = l2.max_fecha ) lr ON d.electrovalvulaId = lr.electrovalvulaId ORDER BY d.dispositivoId ASC;', function(err, result, fields) {
         if (err) {
             res.send(err).status(400);
             return;
