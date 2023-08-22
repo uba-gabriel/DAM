@@ -28,4 +28,9 @@ export class DispositivoService {
   getValvula (id: any): Promise<any> {
     return firstValueFrom(this._http.get('http://localhost:8000/dispositivo/valvula/'+id))
   }
+
+  modifyValveState(id: any): Promise<any> {
+    return firstValueFrom(this._http.put('http://localhost:8000/dispositivo/cambiavalvula/'+id,''))      
+  } 
+
 }

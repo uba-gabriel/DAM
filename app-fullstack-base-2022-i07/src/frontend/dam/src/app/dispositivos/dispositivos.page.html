@@ -15,7 +15,6 @@
         <ion-row>
           <ion-col size="2"><h3><strong>Nombre</strong></h3></ion-col>
           <ion-col size="2"><h3><strong>Ubicación</strong></h3></ion-col>
-          <!--<ion-col size="2"><h3><strong>Última Medición</strong></h3></ion-col>-->
           <ion-col size="2"><h3><strong>Mediciones</strong></h3></ion-col>
           <ion-col size="2"><h3><strong>Log de Riegos</strong></h3></ion-col>
           <ion-col size="2"><h3><strong>Gráfica de Última Medición</strong></h3></ion-col>
@@ -35,11 +34,6 @@
             <ion-icon name="wifi-outline"></ion-icon>
             <p class="ubicacion">{{ dispositivo.ubicacion }}</p>
           </ion-col>
-          <!--<ion-col size="2">
-            <h3>{{ dispositivo.fecha_ultima_medicion }}</h3>-->
-            <!-- Uso de PIPE -->
-            <!--<h3>{{ dispositivo.valor_ultima_medicion | number: '1.1-2' }} Cb</h3>
-          </ion-col>-->
           <ion-col size="2">
             <ion-button sombreadodirective shape="round" fill="clear" expand="full" routerLink="/medicion/{{ dispositivo.dispositivoId }}">
               <ion-icon name="ellipsis-horizontal-outline"></ion-icon>
