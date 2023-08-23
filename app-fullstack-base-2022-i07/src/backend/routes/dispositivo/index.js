@@ -76,7 +76,7 @@ routerDispositivo.get('/valvula/:id', function(req, res) {
     });
 });
 
-routerDispositivo.post('/cambiavalv', function(req,res) {
+/*routerDispositivo.post('/cambiavalv', function(req,res) {
     //const evId = req.body[0].id;
 
     pool.query('INSERT INTO log_riegos (fecha, apertura, electrovalvulaId) VALUES (NOW(), 1, 1)', function(err, result, fields) {
@@ -88,12 +88,12 @@ routerDispositivo.post('/cambiavalv', function(req,res) {
         res.send(result);
         console.log('send to DB');
     });
-});
+});*/
 
 
-/*routerDispositivo.post('/cambiavalv', function(req, res) {
-    requestLocal = req.body[0].id;
-    //requestLocal=req.params.id;
+routerDispositivo.post('/cambiavalv', function(req, res) {
+    //requestLocal = req.body[0].id;
+    requestLocal=req.params.id;
     
    console.log("cambiando ev:"+requestLocal);
     let result=0;
@@ -102,12 +102,12 @@ routerDispositivo.post('/cambiavalv', function(req,res) {
     let actual_value;
     let action="cerrar";
 
-    pool.query('SELECT * FROM Log_Riegos  WHERE electrovalvulaId=? order by fecha desc',[req.body[0].id], async function(err,result, fields){                   
+    pool.query('SELECT * FROM Log_Riegos  WHERE electrovalvulaId=? order by fecha desc',[req.params.id], async function(err,result, fields){                   
         actual_value=result[0];
         console.log(result[0]);
       
     try{ 
-        pool.query('INSERT INTO Log_Riegos (apertura,fecha,electrovalvulaId) values (?, NOW(),?)',[([actual_value.apertura]==0)? 1 : 0,req.body[0].id],await function(error,result, fields){
+        pool.query('INSERT INTO Log_Riegos (apertura,fecha,electrovalvulaId) values (?, NOW(),?)',[([actual_value.apertura]==0)? 1 : 0,req.params.id],await function(error,result, fields){
                console.log(result);
                 if(error){
                         throw(error);
@@ -122,7 +122,7 @@ routerDispositivo.post('/cambiavalv', function(req,res) {
     //send response to frontend
     res.send("Item status Updated").status(200);
     res.end();
-});*/
+});
 
 
 
