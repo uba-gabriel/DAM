@@ -88,11 +88,11 @@ routerDispositivo.get('/valvula/:id', function(req, res) {
     });
 });
 
-routerDispositivo.post('/cambiavalv', function(req,res) {
-    const evId = req.params.id ;
+routerDispositivo.get('/cambiavalv/:id', function(req,res) {
+    const evId = parseInt(req.params.id) || 4 ;
     //const electrovalvulaId = req.body.electrovalvulaId;
 
-    pool.query('INSERT INTO log_riegos (fecha, apertura, electrovalvulaId) VALUES (NOW(), 1, '+ 1 +')', function(err, result, fields) {
+    pool.query('INSERT INTO log_riegos (fecha, apertura, electrovalvulaId) VALUES (NOW(), 1, '+ evId +')', function(err, result, fields) {
         if (err) {
             res.status(400).send(err);
             console.log('error apert');
