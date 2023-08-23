@@ -97,10 +97,7 @@ routerDispositivo.post('/cambiavalv', function(req, res) {
     
    console.log("cambiando ev:"+requestLocal);
     let result=0;
-    let actualState=0;
-    let results="0";
     let actual_value;
-    let action="cerrar";
 
     pool.query('SELECT * FROM Log_Riegos  WHERE electrovalvulaId=? order by fecha desc',[req.params.id], async function(err,result, fields){                   
         actual_value=result[0];
