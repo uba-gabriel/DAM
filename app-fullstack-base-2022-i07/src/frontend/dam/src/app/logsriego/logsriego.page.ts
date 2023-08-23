@@ -25,7 +25,10 @@ export class LogsriegoPage implements OnInit {
     console.log("Estoy en obtenerRiegos");
     try {
       this.riegos = await this._dispositivoService.getLogRiegos(this.idDispositivo);
+      //this.riegos = await this._dispositivoService.modificavalvula(this.idDispositivo);
+     
     } catch (error) {
+      console.log("Salgo por error en obtenerRiegos");
       console.log(error);
     }
   }

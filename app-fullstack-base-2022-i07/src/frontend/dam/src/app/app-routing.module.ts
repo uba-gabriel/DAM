@@ -26,7 +26,12 @@ const routes: Routes = [
   {
     path: 'graficodetalles/:id',
     loadChildren: () => import('./graficodetalles/graficodetalles.module').then( m => m.GraficodetallesPageModule)
+  },
+  {
+    path: 'valvriego/:id',
+    loadChildren: () => import('./valvriego/valvriego.module').then( m => m.ValvriegoPageModule)
   }
+
 
 
 ];

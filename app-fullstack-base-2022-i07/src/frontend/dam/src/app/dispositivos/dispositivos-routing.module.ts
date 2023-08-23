@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LogsriegoPage } from '../logsriego/logsriego.page';
 import { MedicionesPage } from '../mediciones/mediciones.page';
 import { DispositivosPage } from './dispositivos.page';
+import { ValvriegoPage } from '../valvriego/valvriego.page';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   { 
     path: 'mediciones/:id', 
     component: MedicionesPage
+  },
+  { 
+    path: 'valvriego/:id', 
+    component: ValvriegoPage
   }
 ];
 
