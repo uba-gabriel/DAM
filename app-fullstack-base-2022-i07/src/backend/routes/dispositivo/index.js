@@ -88,7 +88,7 @@ routerDispositivo.get('/valvula/:id', function(req, res) {
     });
 });
 
-routerDispositivo.get('/cambiavalv/:id', function(req,res) {
+/*routerDispositivo.get('/cambiavalv/:id', function(req,res) {
     const evId = parseInt(req.params.id) || 4 ;
     //const electrovalvulaId = req.body.electrovalvulaId;
 
@@ -101,10 +101,36 @@ routerDispositivo.get('/cambiavalv/:id', function(req,res) {
         res.send(result);
         console.log('send to DB');
     });
+});*/
+
+routerDispositivo.get('/cambiavalv/:id', function(req,res) {
+        const evId = parseInt(req.params.id) || 0 ;
+        let result=0;
+        let actual_value;
+    
+        pool.query('SELECT * FROM Log_Riegos WHERE electrovalvulaId= '+ evId +' order by fecha desc', async function(err,result, fields){                   
+            actual_value=result[0];
+            const apert = parseInt([actual_value.apertura]) || 0;
+            apert = ([actual_value.apertura]==0)? 1 : 0;
+            //console.log(result[0]);
+          
+        try{ 
+            pool.query('INSERT INTO Log_Riegos (fecha,apertura,electrovalvulaId) values (NOW(),'+ apert +','+ evId +')',await function(error,result, fields){
+                   console.log(result);
+                    if(error){
+                            throw(error);
+                        }                
+                    }) 
+            }catch(error){console.log(error);}
+            //;} 
+        });       
+
+    //send response to frontend
+    //res.send("Item status Updated").status(200);
+    //res.end();
 });
 
-
-/*routerDispositivo.post('/cambiavalv', function(req, res) {
+/*routerDispositivo.post('/autocambiavalv', function(req, res) {
     requestLocal = req.body[0].id;
     //requestLocal=req.params.id;
     
