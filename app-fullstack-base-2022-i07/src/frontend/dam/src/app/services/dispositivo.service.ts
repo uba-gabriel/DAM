@@ -33,4 +33,9 @@ export class DispositivoService {
     return firstValueFrom(this._http.post('http://localhost:8000/dispositivo/cambiavalv', id));
   }
 
+  /*sendCerrarElectrovalvula_riegos(electrovalvulaId: any): Promise<any> {
+    return firstValueFrom(this._http.post('http://localhost:8000/dispositivo/cerrar', electrovalvulaId));
+  }*/
+
+
 }

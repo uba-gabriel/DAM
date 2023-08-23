@@ -11,7 +11,7 @@ import { NavController } from '@ionic/angular';
 })
 export class ValvriegoPage implements OnInit {
 
-  riegos: any[] = []; 
+  valriegos: any[] = []; 
   public idDispositivo: any;
 
   constructor(private router: ActivatedRoute, private _dispositivoService: DispositivoService, private navCtrl: NavController) {}
@@ -25,7 +25,7 @@ export class ValvriegoPage implements OnInit {
   async actualizarRiegos() {
     console.log("Estoy en actualizarRiegos");
     try {
-      this.riegos = await this._dispositivoService.modificavalvula(this.idDispositivo);
+      this.valriegos = await this._dispositivoService.modificavalvula(this.idDispositivo);
      
     } catch (error) {
       console.log("Salgo por error en actualizarRiegos");
@@ -33,9 +33,9 @@ export class ValvriegoPage implements OnInit {
     }
   }
 
-  ionViewDidEnter() {
+  /*ionViewDidEnter() {
     this.navCtrl.back();
-  }
+  }*/
   
 }
 

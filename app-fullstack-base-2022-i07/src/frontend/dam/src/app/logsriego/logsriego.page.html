@@ -32,7 +32,7 @@
             <h2><strong>Fecha:</strong></h2>
             <h3>{{ riego.fecha | formatDate  }}</h3>
             <br><h2><strong>Electrovalvula:</strong></h2>
-            <h3>{{ riego.electrovalvulaId }}</h3> 
+            <h3>{{ riego.nombre }}</h3> 
             <br><h2><strong>Estado:</strong></h2>
             <h3>
               <ng-container *ngIf="riego.apertura === 1; else cerrado">Abierto</ng-container>
