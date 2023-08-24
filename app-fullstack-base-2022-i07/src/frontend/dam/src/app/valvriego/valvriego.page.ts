@@ -39,7 +39,7 @@ export class ValvriegoPage implements OnInit {
   
     // Regresar a la página anterior
     //this.navCtrl.back();
-    this.routering.navigate(['/'], { queryParams: { reload: true } });
+    this.routering.navigate(['/']);
   }
 
 
