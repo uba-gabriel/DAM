@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription, fromEvent, interval, map } from 'rxjs';
 import { DispositivoService } from '../services/dispositivo.service'
 import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-valvriego',
@@ -14,7 +15,7 @@ export class ValvriegoPage implements OnInit {
   valriegos: any[] = []; 
   public idDispositivo: any;
 
-  constructor(private router: ActivatedRoute, private _dispositivoService: DispositivoService, private navCtrl: NavController) {}
+  constructor(private routering: Router ,private router: ActivatedRoute, private _dispositivoService: DispositivoService, private navCtrl: NavController) {}
 
   ngOnInit() {
     this.idDispositivo = this.router.snapshot.paramMap.get('id');
@@ -27,6 +28,7 @@ export class ValvriegoPage implements OnInit {
     try {
       this.valriegos = await this._dispositivoService.modificavalvula(this.idDispositivo);
      
+      //this.router.navigate(['/pagina-original'], { queryParams: { reload: true } });
     } catch (error) {
       console.log("Salgo por error en actualizarRiegos");
       console.log(error);
@@ -36,10 +38,8 @@ export class ValvriegoPage implements OnInit {
   ionViewDidEnter() {
   
     // Regresar a la página anterior
-    this.navCtrl.back();
-    // Actualizar la página original
-    window.location.reload();
-
+    //this.navCtrl.back();
+    this.routering.navigate(['/'], { queryParams: { reload: true } });
   }
 
 
