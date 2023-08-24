@@ -12,7 +12,7 @@ import { DispositivoService } from '../services/dispositivo.service'
 export class DispositivosPage implements OnInit {
 
   dispositivos: any[] = []; 
-  //public apertura=2;
+
   public idDispositivo: any;
 
   constructor(private _dispositivoService: DispositivoService, private router: ActivatedRoute) {}
@@ -30,35 +30,6 @@ export class DispositivosPage implements OnInit {
       console.log(error);
     }
   }
-
-  botonCerrar(id:any):void{
-  
-    console.log("Electrovalve cerrar"+id);
-    //this.apertura=0;
-    this._dispositivoService.modificavalvula(id);
-    console.log("Apertura "+id);
-    //window.location.reload();
-  }
-
-  botonAbrir(id:any) {
-    //const id = 123; // Supongamos que aquí defines el ID adecuado
-    this._dispositivoService.modificavalvula(id);
-  }
-
-/*
-  botonAbrir(id:any):void{
-  
-    try {
-      this._dispositivoService.modificavalvula(id);
-    } catch (error) {
-      console.log(error);
-    }
- 
-    //console.log("Electrovalve abrir"+id);
-    //this._dispositivoService.modificavalvula(id);
-    //this.apertura=1;
-    //window.location.reload();
-  }*/
 
 }
 

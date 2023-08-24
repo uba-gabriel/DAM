@@ -33,10 +33,16 @@ export class ValvriegoPage implements OnInit {
     }
   }
 
-  /*ionViewDidEnter() {
-    this.navCtrl.back();
-  }*/
+  ionViewDidEnter() {
   
+    // Regresar a la página anterior
+    this.navCtrl.back();
+    // Actualizar la página original
+    window.location.reload();
+
+  }
+
+
 }
 
 

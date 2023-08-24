@@ -116,7 +116,7 @@ routerDispositivo.get('/cambiavalv/:id', function(req, res) {
         }
 
         if (result.length === 0) {
-            // No existing records, insert with apertura = 1
+
             try {
                 pool.query('INSERT INTO Log_Riegos (fecha, apertura, electrovalvulaId) VALUES (NOW(), 1, ' + evId + ')', async function(error, result, fields) {
                     if (error) {
@@ -132,7 +132,7 @@ routerDispositivo.get('/cambiavalv/:id', function(req, res) {
         } else {
             actual_value = result[0];
             const apert = ([actual_value.apertura]==0)? 1 : 0;
-            //const apert = parseInt(actual_value.apertura) || 0;
+ 
             try {
                 pool.query('INSERT INTO Log_Riegos (fecha, apertura, electrovalvulaId) VALUES (NOW(), ' + apert + ', ' + evId + ')', async function(error, result, fields) {
                     if (error) {
@@ -147,36 +147,8 @@ routerDispositivo.get('/cambiavalv/:id', function(req, res) {
             }
         }
 
-        //res.status(200).send("Item status Updated");
     });
 });
-
-/*routerDispositivo.get('/cambiavalv/:id', function(req,res) {
-        const evId = parseInt(req.params.id) || 0 ;
-        let result=0;
-        let actual_value;
-    
-        pool.query('SELECT * FROM Log_Riegos WHERE electrovalvulaId= '+ evId +' order by fecha desc', async function(err,result, fields){                   
-            actual_value=result[0];
-            const apert = parseInt([actual_value.apertura]) || 0;
-            apert = ([actual_value.apertura]==0)? 1 : 0;
-            //console.log(result[0]);
-          
-        try{ 
-            pool.query('INSERT INTO Log_Riegos (fecha,apertura,electrovalvulaId) values (NOW(),'+ apert +','+ evId +')',await function(error,result, fields){
-                   console.log(result);
-                    if(error){
-                            throw(error);
-                        }                
-                    }) 
-            }catch(error){console.log(error);}
-            //;} 
-        });       
-
-    //send response to frontend
-    //res.send("Item status Updated").status(200);
-    //res.end();
-});*/
 
 /*routerDispositivo.post('/autocambiavalv', function(req, res) {
     requestLocal = req.body[0].id;
@@ -207,10 +179,6 @@ routerDispositivo.get('/cambiavalv/:id', function(req, res) {
     res.send("Item status Updated").status(200);
     res.end();
 });*/
-
-
-
-
 
 /*routerDispositivo.put('/cambiavalvula/:id, async function(req, res, next) {
     
