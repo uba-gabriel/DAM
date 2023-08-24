@@ -30,7 +30,7 @@ routerDispositivo.get('/medicion/:id', function(req, res) {
 routerDispositivo.get('/logsriego/:id', function(req, res) {
     const electrovalvulaId = req.params.id;
 
-    pool.query('Select lr.*, ev.nombre from Log_Riegos lr JOIN Electrovalvulas ev ON lr.electrovalvulaId = ev.electrovalvulaId where lr.electrovalvulaId=? order by fecha, logRiegoId desc', [electrovalvulaId], function(err, result, fields) {
+    pool.query('Select lr.*, ev.nombre from Log_Riegos lr JOIN Electrovalvulas ev ON lr.electrovalvulaId = ev.electrovalvulaId where lr.electrovalvulaId=? order by lr.fecha desc, lr.logRiegoId desc', [electrovalvulaId], function(err, result, fields) {
         if (err) {
             res.status(400).send(err);
             return;
